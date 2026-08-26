@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>5 Months of Forever 💖 Sajjad &amp; Jannat</title>
+  <meta name="description" content="A magical 5th month anniversary surprise for my Jannat" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       SECTION: ROOT / RESET
+    ============================================================ */
+    :root {
+      --rose: #ffb3c6;
+      --pink: #ff4d7a;
+      --gold: #ffd700;
+      --deep: #1a0b1a;
+      --maroon: #3d1b2a;
+      --glass: rgba(255, 179, 198, 0.07);
+      --glass-border: rgba(255, 179, 198, 0.28);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #1a0b1a;
+      color: #fff;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 40px);
+      overflow-x: hidden;
+      position: relative;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ============================================================
+       SECTION: BACKGROUND LAYERS (gradient, orbs, stars, canvas)
+    ============================================================ */
+    .bg-gradient {
+      position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background: linear-gradient(160deg, #1a0b1a 0%, #2a1020 45%, #3d1b2a 100%);
+    }
+
+    /* Soft radial light orbs behind the card */
+    .orb {
+      position: fixed; z-index: -1; border-radius: 50%;
+      filter: blur(90px); pointer-events: none;
+      animation: orbFloat 14s ease-in-out infinite;
+    }
+    .orb-1 {
+      width: 46vmin; height: 46vmin; top: -10%; left: -8%;
+      background: radial-gradient(circle, rgba(255, 77, 122, 0.5), transparent 70%);
+    }
+    .orb-2 {
+      width: 50vmin; height: 50vmin; bottom: -12%; right: -10%;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.28), transparent 70%);
+      animation-delay: -5s;
+    }
+    .orb-3 {
+      width: 34vmin; height: 34vmin; top: 38%; left: 55%;
+      background: radial-gradient(circle, rgba(255, 179, 198, 0.35), transparent 70%);
+      animation-delay: -9s;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%      { transform: translate(4vmin, -3vmin) scale(1.08); }
+      66%      { transform: translate(-3vmin, 4vmin) scale(0.94); }
+    }
+
+    /* Twinkling star field */
+    .star-field { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .star {
+      position: absolute; background: #fff; border-radius: 50%;
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+      opacity: 0.15;
+      animation: twinkleStar ease-in-out infinite;
+    }
+    @keyframes twinkleStar {
+      0%, 100% { opacity: 0.12; transform: scale(0.85); }
+      50%      { opacity: 0.85; transform: scale(1.15); }
+    }
+
+    /* Floating hearts canvas */
+    #heartsCanvas {
+      position: fixed; inset: 0; z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       SECTION: MAIN GLASS CARD
+    ============================================================ */
+    .card {
+      position: relative; z-index: 2;
+      width: min(92vw, 560px);
+      background: var(--glass);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: clamp(28px, 6vw, 56px) clamp(20px, 5vw, 48px);
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(255, 215, 0, 0.07),
+        0 0 30px rgba(255, 77, 122, 0.28),
+        0 0 80px rgba(255, 77, 122, 0.16),
+        0 25px 60px rgba(0, 0, 0, 0.55);
+      animation: floatCard 6s ease-in-out infinite;
+    }
+
+    /* Glowing neon gradient border */
+    .card::before {
+      content: ""; position: absolute; inset: -2px; border-radius: 30px; padding: 2px;
+      background: linear-gradient(135deg,
+        rgba(255, 179, 198, 0.7), rgba(255, 77, 122, 0.25),
+        rgba(255, 215, 0, 0.55), rgba(255, 179, 198, 0.7));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-12px); }
+    }
+
+    /* Date pill */
+    .date-pill {
+      display: inline-block; margin-bottom: 18px;
+      padding: 7px 20px; border-radius: 999px;
+      background: rgba(255, 77, 122, 0.14);
+      border: 1px solid rgba(255, 179, 198, 0.35);
+      color: var(--rose);
+      font-size: clamp(0.68rem, 2.2vw, 0.8rem);
+      letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500;
+      box-shadow: 0 0 18px rgba(255, 77, 122, 0.3);
+    }
+
+    /* Hero names + pulsing heart */
+    .hero {
+      display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+      gap: clamp(8px, 2.5vw, 16px); line-height: 1.2;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.3rem, 9.5vw, 3.8rem); font-weight: 700;
+    }
+    .hero .name {
+      background: linear-gradient(120deg, var(--rose), var(--gold));
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 14px rgba(255, 77, 122, 0.45));
+    }
+    .heart-icon {
+      display: inline-block;
+      font-size: clamp(1.9rem, 7vw, 3rem); line-height: 1;
+      animation: heartbeat 1.6s ease-in-out infinite;
+      filter: drop-shadow(0 0 14px rgba(255, 77, 122, 0.85));
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14%      { transform: scale(1.28); }
+      28%      { transform: scale(1); }
+      42%      { transform: scale(1.22); }
+      70%      { transform: scale(1); }
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: clamp(0.72rem, 2.6vw, 0.88rem);
+      font-weight: 500; letter-spacing: 0.34em; text-transform: uppercase;
+      color: var(--rose); opacity: 0.9;
+      text-shadow: 0 0 12px rgba(255, 179, 198, 0.5);
+    }
+    .since-note {
+      margin-top: 8px;
+      font-size: clamp(0.62rem, 2.2vw, 0.75rem);
+      color: rgba(255, 231, 238, 0.55); letter-spacing: 0.08em;
+    }
+
+    /* ============================================================
+       SECTION: COUNTDOWN
+    ============================================================ */
+    .countdown {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: clamp(6px, 1.6vw, 12px);
+      margin: clamp(22px, 4.5vh, 34px) 0 clamp(18px, 3.5vh, 26px);
+    }
+    .cd-box {
+      background: rgba(26, 11, 26, 0.5);
+      border: 1px solid rgba(255, 179, 198, 0.22);
+      border-radius: 16px;
+      padding: clamp(10px, 2.6vw, 18px) 4px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: inset 0 0 22px rgba(255, 77, 122, 0.08), 0 0 16px rgba(255, 77, 122, 0.14);
+    }
+    .cd-num {
+      font-size: clamp(1.5rem, 6.2vw, 2.5rem); font-weight: 600;
+      text-shadow: 0 0 16px rgba(255, 179, 198, 0.65);
+      font-variant-numeric: tabular-nums;
+    }
+    .cd-label {
+      margin-top: 2px;
+      font-size: clamp(0.56rem, 2vw, 0.68rem);
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); opacity: 0.9;
+    }
+
+    /* ============================================================
+       SECTION: CELEBRATION MESSAGE (shown on/after the date)
+    ============================================================ */
+    .celebration {
+      display: none; position: relative;
+      margin: clamp(22px, 4.5vh, 34px) 0 clamp(18px, 3.5vh, 26px);
+      padding: clamp(18px, 4vw, 28px) clamp(8px, 3vw, 20px);
+      border-radius: 20px;
+      background: rgba(255, 77, 122, 0.08);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.15), inset 0 0 30px rgba(255, 77, 122, 0.1);
+    }
+    .celebration.show { display: block; animation: fadeScale 0.9s ease both; }
+    .celebration h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.9rem, 7.5vw, 3rem); font-weight: 700; line-height: 1.25;
+      background: linear-gradient(120deg, var(--gold), var(--rose), var(--pink));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.35));
+    }
+    .celebration-sub {
+      margin-top: 10px; color: var(--rose); font-weight: 500;
+      font-size: clamp(0.75rem, 2.6vw, 0.9rem); letter-spacing: 0.18em;
+    }
+    .c-spark {
+      position: absolute; pointer-events: none;
+      font-size: clamp(0.95rem, 3.6vw, 1.5rem);
+      animation: sparklePop 1.9s ease-in-out infinite;
+    }
+    @keyframes sparklePop {
+      0%, 100% { transform: scale(0.55) rotate(0deg); opacity: 0.3; }
+      50%      { transform: scale(1.15) rotate(22deg); opacity: 1; }
+    }
+    @keyframes fadeScale {
+      from { opacity: 0; transform: translateY(16px) scale(0.92); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ============================================================
+       SECTION: BUTTONS
+    ============================================================ */
+    .btn-love {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: clamp(0.95rem, 2.8vw, 1.05rem);
+      color: #3d1b2a;
+      padding: 14px 32px; border-radius: 999px; border: none;
+      cursor: pointer; touch-action: manipulation;
+      background: linear-gradient(135deg, var(--gold), var(--rose) 45%, var(--pink));
+      box-shadow: 0 0 26px rgba(255, 77, 122, 0.55), 0 10px 26px rgba(0, 0, 0, 0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .btn-love:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 38px rgba(255, 77, 122, 0.8), 0 14px 32px rgba(0, 0, 0, 0.45);
+    }
+    .btn-love:active { transform: scale(0.96); }
+    .btn-love:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    /* ============================================================
+       SECTION: LOVE LETTER MODAL
+    ============================================================ */
+    .modal {
+      position: fixed; inset: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      background: rgba(10, 4, 12, 0.62);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .modal.open { opacity: 1; visibility: visible; }
+
+    .modal-card {
+      position: relative;
+      width: min(94vw, 520px);
+      max-height: 86svh; overflow-y: auto; overscroll-behavior: contain;
+      background: rgba(30, 12, 24, 0.88);
+      border: 1px solid rgba(255, 179, 198, 0.35);
+      border-radius: 24px;
+      padding: clamp(26px, 6vw, 44px) clamp(20px, 5.5vw, 40px);
+      box-shadow: 0 0 60px rgba(255, 77, 122, 0.32), 0 30px 70px rgba(0, 0, 0, 0.6);
+      transform: translateY(26px) scale(0.95);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .modal.open .modal-card { transform: translateY(0) scale(1); }
+
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(255, 179, 198, 0.4);
+      background: rgba(255, 179, 198, 0.1);
+      color: var(--rose); font-size: 1.25rem; line-height: 1;
+      cursor: pointer; touch-action: manipulation;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+    .modal-close:hover { background: rgba(255, 77, 122, 0.25); transform: rotate(90deg); }
+    .modal-close:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+    .modal-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.7rem, 6.5vw, 2.4rem); font-weight: 700;
+      background: linear-gradient(120deg, var(--rose), var(--gold));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      margin-bottom: 18px;
+    }
+    .letter-body {
+      background: linear-gradient(180deg, rgba(255, 215, 224, 0.08), rgba(255, 215, 0, 0.05));
+      border: 1px solid rgba(255, 179, 198, 0.25);
+      border-radius: 16px;
+      padding: clamp(18px, 4.5vw, 30px);
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.12rem, 3.8vw, 1.35rem); font-weight: 500;
+      line-height: 1.85; color: #ffe6ee;
+    }
+    .letter-body p { margin-bottom: 12px; }
+    .signature { text-align: right; margin-top: 20px; }
+    .signature .for-line { color: var(--rose); font-size: 1.05em; }
+    .signature .name-line {
+      color: var(--gold); font-size: 1.25em; font-weight: 700;
+      text-shadow: 0 0 14px rgba(255, 215, 0, 0.4);
+    }
+
+    /* ============================================================
+       SECTION: PAGE-LOAD BURST PARTICLES
+    ============================================================ */
+    .burst-particle {
+      position: fixed; z-index: 60; pointer-events: none;
+      width: 9px; height: 9px; border-radius: 50%;
+      animation: burstFly 1.4s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
+    }
+    @keyframes burstFly {
+      0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0.15); opacity: 0; }
+    }
+
+    /* ============================================================
+       SECTION: RESPONSIVE + REDUCED MOTION
+    ============================================================ */
+    @media (max-width: 420px) {
+      .card { border-radius: 22px; }
+      .card::before { border-radius: 24px; }
+      .countdown { gap: 5px; }
+      .cd-box { border-radius: 12px; }
+      .btn-love { width: 100%; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card, .orb, .heart-icon, .c-spark, .star, .burst-particle { animation: none !important; }
+      .modal-card, .modal.open .modal-card { transition: none; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ==================== BACKGROUND LAYERS ==================== -->
+  <div class="bg-gradient" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+  <div class="star-field" id="starField" aria-hidden="true"></div>
+  <canvas id="heartsCanvas" aria-hidden="true"></canvas>
+
+  <!-- ==================== MAIN GLASS CARD ==================== -->
+  <main class="card" id="card">
+    <span class="date-pill">27 August 2026</span>
+
+    <h1 class="hero">
+      <span class="name">Sajjad</span>
+      <span class="heart-icon" aria-hidden="true">💖</span>
+      <span class="name">Jannat</span>
+    </h1>
+    <p class="subtitle">5 Months of Forever</p>
+    <p class="since-note">Married 27 March 2026 · 153 days of love and counting</p>
+
+    <!-- Countdown (shown before the anniversary) -->
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="cd-box"><div class="cd-num" id="cdDays">00</div><div class="cd-label">Days</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdHours">00</div><div class="cd-label">Hours</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdMinutes">00</div><div class="cd-label">Minutes</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdSeconds">00</div><div class="cd-label">Seconds</div></div>
+    </div>
+
+    <!-- Celebration message (shown on/after the anniversary) -->
+    <div class="celebration" id="celebration" aria-live="assertive">
+      <h2 id="celebrationTitle">Happy 5th Month Anniversary, My Jannat!</h2>
+      <p class="celebration-sub">💍 Forever begins now, with you 💍</p>
+    </div>
+
+    <button class="btn-love" id="openLetter" aria-haspopup="dialog">💌 Open Your Surprise</button>
+  </main>
+
+  <!-- ==================== LOVE LETTER MODAL ==================== -->
+  <div class="modal" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="letterTitle" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="closeLetter" aria-label="Close letter">✕</button>
+      <h2 class="modal-title" id="letterTitle">💌 A Letter, Just for You</h2>
+      <div class="letter-body">
+        <p>My Dearest Jannat,</p>
+        <p>Happy 5th Month Anniversary! Every day with you feels like a dream. From 27 March 2026 until now and forever, my heart belongs only to you.</p>
+        <p>You are my light, my peace, and my greatest adventure. I love you endlessly.</p>
+        <div class="signature">
+          <div class="for-line">Forever yours,</div>
+          <div class="name-line">Sajjad Siam</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ============================================================
+       SECTION: TWINKLING STAR FIELD
+    ============================================================ */
+    (function buildStars() {
+      const field = document.getElementById('starField');
+      for (let i = 0; i < 70; i++) {
+        const s = document.createElement('span');
+        s.className = 'star';
+        s.style.left = (Math.random() * 100) + '%';
+        s.style.top = (Math.random() * 100) + '%';
+        const size = (1 + Math.random() * 2).toFixed(1);
+        s.style.width = size + 'px';
+        s.style.height = size + 'px';
+        s.style.animationDuration = (2.5 + Math.random() * 4).toFixed(2) + 's';
+        s.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
+        field.appendChild(s);
+      }
+    })();
+
+    /* ============================================================
+       SECTION: FLOATING HEARTS (Canvas)
+    ============================================================ */
+    const canvas = document.getElementById('heartsCanvas');
+    const ctx = canvas.getContext('2d');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W = 0, H = 0, dpr = 1;
+
+    const heartColors = ['255,179,198', '255,77,122', '255,215,0', '255,138,166'];
+    const pickColor = () => heartColors[Math.floor(Math.random() * heartColors.length)];
+
+    let hearts = [];
+    function initHearts() {
+      hearts = [];
+      const count = Math.min(48, Math.max(34, Math.floor(W / 26)));
+      for (let i = 0; i < count; i++) {
+        hearts.push({
+          baseX: Math.random() * W,
+          y: Math.random() * H,
+          size: 7 + Math.random() * 17,
+          speed: 0.25 + Math.random() * 0.85,
+          sway: 8 + Math.random() * 28,
+          swaySpeed: 0.5 + Math.random() * 1.3,
+          phase: Math.random() * Math.PI * 2,
+          alpha: 0.22 + Math.random() * 0.45,
+          color: pickColor()
+        });
+      }
+    }
+
+    function resizeCanvas() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      canvas.style.width = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      initHearts();
+    }
+
+    function drawHeartShape(x, y, s, color, alpha) {
+      const t = s * 0.3; // top curve height
+      ctx.save();
+      ctx.translate(x, y - s / 2);
+      ctx.globalAlpha = alpha;
+      ctx.beginPath();
+      ctx.moveTo(0, t);
+      ctx.bezierCurveTo(0, 0, -s / 2, 0, -s / 2, t);
+      ctx.bezierCurveTo(-s / 2, (s + t) / 2, 0, (s + t) / 2 * 1.3, 0, s);
+      ctx.bezierCurveTo(0, (s + t) / 2 * 1.3, s / 2, (s + t) / 2, s / 2, t);
+      ctx.bezierCurveTo(s / 2, 0, 0, 0, 0, t);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(' + color + ',' + alpha + ')';
+      ctx.shadowColor = 'rgba(255, 77, 122, 0.5)';
+      ctx.shadowBlur = s * 0.8;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function renderHearts(time) {
+      ctx.clearRect(0, 0, W, H);
+      const t = time / 1000;
+      for (const h of hearts) {
+        h.y -= h.speed * 0.7;
+        const x = h.baseX + Math.sin(t * h.swaySpeed + h.phase) * h.sway;
+        if (h.y < -50) {
+          h.y = H + 40 + Math.random() * 40;
+          h.baseX = Math.random() * W;
+        }
+        drawHeartShape(x, h.y, h.size, h.color, h.alpha);
+      }
+    }
+
+    let lastTime = performance.now();
+    function loop(now) {
+      if (reducedMotion) return;               // static frame only
+      requestAnimationFrame(loop);
+      const dt = Math.min(32, now - lastTime);
+      lastTime = now;
+      renderHearts(now);
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    if (reducedMotion) {
+      renderHearts(0);                         // draw one still frame
+    } else {
+      requestAnimationFrame(loop);
+    }
+
+    /* ============================================================
+       SECTION: PAGE-LOAD CELEBRATION BURST (sparkling stars)
+    ============================================================ */
+    (function celebrationBurst() {
+      if (reducedMotion) return;
+      const colors = ['#ffd700', '#ffb3c6', '#ff4d7a', '#ffffff'];
+      function burst(count) {
+        for (let i = 0; i < count; i++) {
+          const p = document.createElement('span');
+          p.className = 'burst-particle';
+          const angle = Math.random() * Math.PI * 2;
+          const dist = 60 + Math.random() * 170;
+          p.style.setProperty('--tx', (Math.cos(angle) * dist).toFixed(1) + 'px');
+          p.style.setProperty('--ty', (Math.sin(angle) * dist).toFixed(1) + 'px');
+          p.style.setProperty('--rot', (Math.random() * 360 - 180).toFixed(1) + 'deg');
+          p.style.left = (15 + Math.random() * 70) + 'vw';
+          p.style.top = (15 + Math.random() * 60) + 'vh';
+          p.style.background = colors[i % colors.length];
+          p.style.boxShadow = '0 0 14px ' + colors[i % colors.length];
+          document.body.appendChild(p);
+          p.addEventListener('animationend', () => p.remove());
+        }
+      }
+      burst(22);                       // first wave
+      setTimeout(() => burst(10), 350); // second wave
+    })();
+
+    /* ============================================================
+       SECTION: DYNAMIC DATE LOGIC (countdown / celebration)
+    ============================================================ */
+    const targetDate = new Date('2026-08-27T00:00:00');
+    const countdownEl = document.getElementById('countdown');
+    const celebrationEl = document.getElementById('celebration');
+    const cdDays = document.getElementById('cdDays');
+    const cdHours = document.getElementById('cdHours');
+    const cdMinutes = document.getElementById('cdMinutes');
+    const cdSeconds = document.getElementById('cdSeconds');
+    let celebrating = false;
+
+    function buildCelebrationSparkles() {
+      const spots = [
+        { left: '-4%',  top: '-8%' },  { left: '94%', top: '-10%' },
+        { left: '-8%',  top: '80%' },  { left: '92%', top: '75%' },
+        { left: '45%',  top: '-22%' }, { left: '40%', top: '88%' },
+        { left: '-12%', top: '35%' },  { left: '96%', top: '30%' }
+      ];
+      spots.forEach((pos, i) => {
+        const s = document.createElement('span');
+        s.className = 'c-spark';
+        s.setAttribute('aria-hidden', 'true');
+        s.textContent = ['✨', '⭐', '💖', '✨'][i % 4];
+        s.style.left = pos.left;
+        s.style.top = pos.top;
+        s.style.animationDelay = (i * 0.24).toFixed(2) + 's';
+        celebrationEl.appendChild(s);
+      });
+    }
+
+    function showCelebration() {
+      if (celebrating) return;
+      celebrating = true;
+      countdownEl.style.display = 'none';
+      buildCelebrationSparkles();
+      celebrationEl.classList.add('show');
+    }
+
+    function updateCountdown() {
+      const diff = targetDate - new Date();
+      if (diff <= 0) {
+        showCelebration();
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      cdDays.textContent = String(d).padStart(2, '0');
+      cdHours.textContent = String(h).padStart(2, '0');
+      cdMinutes.textContent = String(m).padStart(2, '0');
+      cdSeconds.textContent = String(s).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    /* ============================================================
+       SECTION: LOVE LETTER MODAL (accessible)
+    ============================================================ */
+    const modal = document.getElementById('letterModal');
+    const openBtn = document.getElementById('openLetter');
+    const closeBtn = document.getElementById('closeLetter');
+    let lastFocus = null;
+
+    function openModal() {
+      lastFocus = document.activeElement;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);   // works for touch too
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close when clicking the darkened backdrop (not the card itself)
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  </script>
+</body>
+</html>
